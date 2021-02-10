@@ -4,6 +4,7 @@ import { Preview } from "./preview";
 import { bundle } from "../services/bundler";
 import { Resizable } from "./resizable";
 import { Box, Flex } from "@chakra-ui/react";
+import { ResizableBox } from "react-resizable";
 
 export const CodeCell = () => {
   const [input, setInput] = useState("");
@@ -25,10 +26,12 @@ export const CodeCell = () => {
     >
       <Resizable direction="vertical">
         <Flex direction="row" height="100%">
-          <CodeEditor
-            initialValue="const hello = 'world'"
-            onChange={(value) => setInput(value)}
-          />
+          <Resizable direction="horizontal">
+            <CodeEditor
+              initialValue="const hello = 'world'"
+              onChange={(value) => setInput(value)}
+            />
+          </Resizable>
           <Preview code={code} />
         </Flex>
       </Resizable>

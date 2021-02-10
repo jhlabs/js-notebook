@@ -42,7 +42,7 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
   };
 
   return (
-    <Box width="100%" paddingLeft={2} paddingY={2}>
+    <Box width="100%" height="100%">
       {/* <button onClick={onFormatClick}>Format</button> */}
       <MonacoEditor
         editorDidMount={onEditorDidMount}

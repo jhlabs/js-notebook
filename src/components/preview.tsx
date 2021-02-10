@@ -35,6 +35,7 @@ export const Preview: React.FC<PreviewProps> = ({ code }) => {
   return (
     <Box
       position="relative"
+      flexGrow={1}
       sx={{
         ".react-draggable-transparent-selection &:after": {
           content: "''",
@@ -52,6 +53,8 @@ export const Preview: React.FC<PreviewProps> = ({ code }) => {
         title="preview"
         ref={iframe}
         srcDoc={html}
+        width="100%"
+        height="100%"
         sandbox="allow-scripts"
       />
     </Box>
