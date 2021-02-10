@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CodeEditor } from "./code-editor";
 import { Preview } from "./preview";
 import { bundle } from "../services/bundler";
@@ -9,11 +9,16 @@ export const CodeCell = () => {
   const [input, setInput] = useState("");
   const [code, setCode] = useState("");
 
-  const onClick = async () => {
-    const result = await bundle(input);
+  useEffect(() => {
+    const timer = setTimeout(async () => {
+      const result = await bundle(input);
+      setCode(result);
+    }, 1000);
 
-    setCode(result);
-  };
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [input]);
 
   return (
     <Box
