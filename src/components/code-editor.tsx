@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import MonacoEditor, { EditorDidMount } from "@monaco-editor/react";
 import prettier from "prettier";
 import parser from "prettier/parser-babel";
@@ -41,14 +42,14 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
   };
 
   return (
-    <div>
-      <button onClick={onFormatClick}>Format</button>
+    <Box width="100%" paddingLeft={2} paddingY={2}>
+      {/* <button onClick={onFormatClick}>Format</button> */}
       <MonacoEditor
         editorDidMount={onEditorDidMount}
         value={initialValue}
-        height="300px"
+        height="100%"
         language="javascript"
-        theme="dark"
+        theme="light"
         options={{
           wordWrap: "on",
           minimap: { enabled: false },
@@ -60,6 +61,6 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
           automaticLayout: true,
         }}
       />
-    </div>
+    </Box>
   );
 };

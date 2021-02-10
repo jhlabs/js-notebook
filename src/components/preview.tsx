@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import { useEffect, useRef } from "react";
 
 const html = `
@@ -32,11 +33,27 @@ export const Preview: React.FC<PreviewProps> = ({ code }) => {
     iframe.current.contentWindow.postMessage(code, "*");
   }, [code]);
   return (
-    <iframe
-      title="preview"
-      ref={iframe}
-      srcDoc={html}
-      sandbox="allow-scripts"
-    />
+    <Box
+      position="relative"
+      sx={{
+        ".react-draggable-transparent-selection &:after": {
+          content: "''",
+          position: "absolute",
+          top: 0,
+          right: 0,
+          left: 0,
+          bottom: 0,
+          opacity: 0,
+        },
+      }}
+    >
+      <Box
+        as="iframe"
+        title="preview"
+        ref={iframe}
+        srcDoc={html}
+        sandbox="allow-scripts"
+      />
+    </Box>
   );
 };
