@@ -1,4 +1,5 @@
 import { Box, Flex } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { ResizableBox, ResizableBoxProps } from "react-resizable";
 
 interface ResizableProps {
@@ -53,7 +54,7 @@ export const Resizable: React.FC<ResizableProps> = ({
       width: 400,
       axis: "x",
       minConstraints: [window.innerWidth * 0.2, Infinity],
-      maxConstraints: [window.innerWidth * 0.75, Infinity],
+      maxConstraints: [window.innerWidth * 0.8, Infinity],
     },
   };
   return (

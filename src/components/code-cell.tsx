@@ -4,7 +4,6 @@ import { Preview } from "./preview";
 import { bundle } from "../services/bundler";
 import { Resizable } from "./resizable";
 import { Box, Flex } from "@chakra-ui/react";
-import { ResizableBox } from "react-resizable";
 
 export const CodeCell = () => {
   const [input, setInput] = useState("");
